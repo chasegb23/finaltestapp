@@ -14,7 +14,7 @@ connection.connect();
 
 connection.query('SELECT post FROM testable WHERE id=1', function (error, results, fields) {
 if (error) throw error;
-res.send(JSON.stringify(results));
+res.send(results[0].post);
 });
 connection.end();
 /*
