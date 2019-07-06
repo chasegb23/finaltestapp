@@ -9,13 +9,14 @@ const connection = mysql.createConnection({
 });
 router.get('/', function(req, res, next) {
 
-  connection.connect();
 
-  connection.query('SELECT post FROM testable WHERE id=1', function (error, results, fields) {
+
+  connection.query('UPDATE testable SET post = "New Post" WHERE id=1', function (error, results, fields) {
   if (error) throw error;
-  res.JSON(results));
+  res.send("This Works");
+  console.log("This Works");
   });
-  connection.end();
+
 
 });
 module.exports = router;

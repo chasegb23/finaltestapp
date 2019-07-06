@@ -10,13 +10,13 @@ const connection = mysql.createConnection({
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-connection.connect();
+
 
 connection.query('SELECT post FROM testable WHERE id=1', function (error, results, fields) {
 if (error) throw error;
-res.send(results[0].post);
+res.send(JSON.stringify(results[0].post));
 });
-connection.end();
+
 /*
 res.json([{
   id: 1,

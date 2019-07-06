@@ -7,6 +7,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mysqlRouter = require('./routes/posts');
+var newpostRouter = require('./routes/newpost');
 var app = express();
 const mysql = require('mysql');
 // view engine setup
@@ -22,7 +23,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', mysqlRouter);
-
+app.use('/newpost', newpostRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
